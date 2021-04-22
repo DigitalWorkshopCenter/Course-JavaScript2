@@ -1,10 +1,20 @@
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
-   integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-   integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <style>
    :root {
+      /*  DWC Color scheme*/
+      --color1: #ffffff;
+      --color2: #FEFEFE;
+      --color3: #94c63f;
+      --color4: #c1d65f;
+      --color5: #6e6f71;
+      --color6: #add36c;
+      --color7: #02a6fb;
+      --color8: #014c73;
+      --color9: #023544;
+      /* Birch Learning Colors
       --color1: #ffffff;
       --color2: #FEFEFE;
       --color3: #F59D00;
@@ -14,73 +24,52 @@
       --color7: #65B1F4;
       --color8: #425268;
       --color9: #1E445D;
-      --colorBlack: #040404;
+      --colorBlack: #040404; */
    }
 
-   nav {}
-
-   @media (max-width: 555px) {
+   @media (max-width: 560px) {
       .noMobile {
          display: none !important;
       }
    }
-
-   @media (max-width: 700px) {
-      .navbar-collapse.collapse {
+   @media (max-width: 760px) {
+      .noSmallTablet {
          display: none !important;
       }
+   }
 
-      .navbar-collapse.collapse.in {
-         display: block !important;
-      }
-
-      .navbar-header .collapse,
-      .navbar-toggle {
-         display: block !important;
-      }
-
-      .navbar-header {
-         float: none;
-      }
-
-      .navbar .navbar-brand {
-         float: none;
-         display: inline-block;
-      }
-
-      .navbar .navbar-nav>.nav-item {
-         float: none;
-         margin-left: .1rem;
-      }
-
-      .navbar .navbar-nav {
-         float: none !important;
-      }
-
-      .nav-item {
-         width: 100%;
-         text-align: left;
-      }
-
-      .navbar-toggler {
-         display: block !important;
-      }
-
-      .navbar-toggleable-sm.collapse {
-         display: none !important
-      }
-
-      .navbar-toggleable-sm.collapse.in {
-         display: block !important
+   @media (max-width: 1100px) {
+      .notablet {
+         display: none !important;
       }
    }
+   a {
+      color: #02a6fb !important;
+   }
+   .navbar-collapse.in {
+      display: block !important;
+   }
+   .courseTitle {
+      background-color: #94c63f;
+      background-image: linear-gradient(90deg, #94c63f, #02a6fb);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent; 
+      -moz-text-fill-color: transparent;
+      font-weight: bold;
+      font-size:125%;
+   }
+  
 </style>
 </head>
 
 <body>
-   <nav class="navbar navbar-expand-sm navbar-dark bg-primary flex-nowrap" style="background-color: #1E445D !important">
-      <a href="/"><img src="https://nathanbirch.github.io/Course-JavaScript2/site/logo.png" alt="" class="logo"></a>
-      <a href="https://nathanbirch.github.io/Course-JavaScript2/"><span class="navbar-brand w-100" style="padding-left: 20px; 
+   <!--BIRCH BRANDING-->
+   <!--
+      <nav class="navbar navbar-expand-sm navbar-dark bg-primary flex-nowrap" style="background-color: #1E445D !important">
+      <a href="/"><img src="https://nathanbirch.github.io/Course-JavaScript1/site/logo.png" alt="" class="logo"></a>
+      <a href="https://nathanbirch.github.io/Course-JavaScript1/"><span class="navbar-brand w-100" style="padding-left: 20px; 
                    background: -webkit-linear-gradient(left, #ffff55, #F59D00, #ffff55);
                    background: -o-linear-gradient(right, #ffff55, #F59D00, #ffff55);
                    background: -moz-linear-gradient(right, #ffff55, #F59D00, #ffff55);
@@ -89,28 +78,39 @@
                    -webkit-text-fill-color: transparent;">
             JavaScript<span class="noMobile"> | Level I</span></span>
       </a>
-
-      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbar5">
-         <ul class="navbar-nav mx-auto">
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Lessons
-               </a>
-               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="https://nathanbirch.github.io/Course-JavaScript2/lesson01">Lesson 1</a>
-                  <a class="dropdown-item" href="https://nathanbirch.github.io/Course-JavaScript2/lesson02">Lesson 2</a>
-                  <a class="dropdown-item" href="https://nathanbirch.github.io/Course-JavaScript2/lesson03">Lesson 3</a>
-                  <a class="dropdown-item" href="https://nathanbirch.github.io/Course-JavaScript2/lesson04">Lesson 4</a>
-                  <a class="dropdown-item" href="https://nathanbirch.github.io/Course-JavaScript2/lesson05">Lesson 5</a>
-               </div>
-            </li>
-
-         </ul>
+   -->
+   <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="background-color: #023544 !important;">
+      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 noSmallTablet">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                 <a href="https://digitalworkshopcenter.com/" target="_blank"><img src="https://nathanbirch.github.io/Course-JavaScript1/site/logo.png" alt="" class="logo" style="height:55px"></a>
+              </li>
+          </ul>
       </div>
-      <div class="w-100">
+      <div class="mx-auto order-0">
+          <a class="navbar-brand mx-auto courseTitle" href="https://nathanbirch.github.io/Course-JavaScript2/">JavaScript Course<span class="noMobile"> | Level 2</span></a>
+          <button class="navbar-toggler hidden-lg-up pull-right" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+              <span class="navbar-toggler-icon"></span>
+          </button>
       </div>
-      <button class="navbar-toggler mr-2" type="button" data-toggle="collapse" data-target="#navbar5">
-         <span class="navbar-toggler-icon"></span>
-      </button>
-   </nav>
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 navbar-toggleable-md">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="https://nathanbirch.github.io/Course-JavaScript2/lesson01"><span class="notablet">Lesson</span> 1</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="https://nathanbirch.github.io/Course-JavaScript2/lesson02"><span class="notablet">Lesson</span> 2</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="https://nathanbirch.github.io/Course-JavaScript2/lesson03"><span class="notablet">Lesson</span> 3</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="https://nathanbirch.github.io/Course-JavaScript2/lesson04"><span class="notablet">Lesson</span> 4</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="https://nathanbirch.github.io/Course-JavaScript2/lesson05"><span class="notablet">Lesson</span> 5</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+  
