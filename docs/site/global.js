@@ -28,7 +28,7 @@ g.assignment = "Programming Assignment";
 // course topics
 g.t1_0 = "JavaScript Review";
 g.t1_1 = "JavaScript Best Practices - Good Habits to get into";
-g.t1_2 = "Helpful Programming Techniques and Tips";
+g.t1_2 = "Helpful Programming Tips";
 g.t1_3 = "JavaScript Modules";
 g.t1_4 = "JavaScript Callbacks";
 g.t1_5 = "Evolution of JavaScript";

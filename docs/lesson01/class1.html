@@ -7,21 +7,20 @@
     <link rel="shortcut icon" href="../site/fav.png" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../site/style.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/default.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="../site/global.js"></script>
     <script>
+        hljs.highlightAll();
         $(function () {
             $("#includedHeader").load("../site/header.html");
         });
         window.onload = function () { // load global variables
             document.title = g.n01 + " - Hands-on 1";
-
-            const demo = document.querySelector("#javaScriptFunctionExample");
-            demo.addEventListener('click', updateName);
-            function updateName() {
-                let name = prompt("Please enter a name");
-                alert("Hello there, " + name + "! I'm excited to learn JavaScript with you!!");
-            }
         };
     </script>
 </head>
@@ -29,106 +28,69 @@
 <body>
     <div id="includedHeader"></div>
     <article>
-        <h1>Hands-on Exercise 1<br>Writing and Running JavaScript Programs</h1>
+        <h1>Hands-on Exercise 1<br>Creating Modules</h1>
         <h2>Overview</h2>
-        <p>The focus of this assignment is to dive right in to writing JavaScript. Here are our goals for today:</p>
+        <p>The focus of this assignment is to create our first JavaScript Modules. Here are our goals for today:</p>
         <ol>
-            <li><p>Get familiar with the tools we installed during <a href="setup.html">SETUP</a> </p></li>
-            <li><p>Write JavaScript code</p></li>
-            <li><p>Run it on our computer</p></li>
-            <li><p>Write more advanced JavaScript code</p></li>
-            <li><p>Run it in the browser</p></li>
+            <li><p>Create an HTML file to run in the browser that links to a JS file</p></li>
+            <li><p>Create a JS file for the html file</p></li>
+            <li><p>Create a second JS file that is a module, that will be referenced in the first JS file</p></li>
         </ol>
-        <h2>Hello World!</h2>
-        <p>"Hello, World!" is a time-honored program that outputs or displays the message "Hello, World!". It is used to illustrate the basic syntax of a programming language and because it is very simple, it is often the first program written by people learning to code. Our first program today will be our "Hello, World!" program.</p>
-        <p>The following video demonstrates how to do the steps in this section:</p>
-        <iframe width="560" height="315" class="img-tutorial" src="https://www.youtube.com/embed/_yQcUfPH_Y0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Now, let's write some code!!</p>
+        <h2>Instructions</h2>
+        <h3>Code without Modules</h3>
         <ol>
-            <li>
-                <p>Open VS Code. You should see something similar to this:</p>
-                <br>
-                <img src="images/class1_1.png" class="img-tutorial" alt="">
-            </li>
-            <li>
-                <p>If you haven't already done so, Click "Open folder" (emphasized above) and select the folder your made for our class.</p>
-                <br>
-                <img src="images/class1_2.png" class="img-tutorial" alt="">
-            </li>
-            <li>
-                <p>Create a new file called <code>hello.js</code></p>
-                <br>
-                <img src="images/class1_3.png" class="img-tutorial" alt="">
-                <br>
-                <p>You should see something like this:</p>
-                <br>
-                <img src="images/class1_4.png" class="img-tutorial" alt="">
-            </li>
-            <li>
-                <p>Now, in the right-hand pane, where we see the <code>1</code> representing the first line of code, write the following:</p>
-                <pre>
-                    <code class="js">
-    console.log("Hello, World!")
-                    </code>
-                </pre>
-            </li>
-            <li>
-                <p>Save the file (You can click "file" then "save file" or press the keys ctrl+s.</p>
-            </li>
-            <li>
-                <p>Finally, click the "Run" button icon to execute the program.</p>
-                <br>
-                <img src="images/class1_6.png" class="img-tutorial" alt="">
-            </li>
-            <li>
-                <p>Notice the output window below that appeared. Your program displayed the text "Hello, World!" to the output console. Congratulations on writing and running your first JavaScript program!</p>
-                <br>
-                <img src="images/class1_7.png" class="img-tutorial" alt="">
-            </li>
+            <li><p>Create an html file named <code>app.html</code> 
+                <ul>
+                    <li><p>Include an <code>input</code> for a user to enter the radius of a circle</p></li>
+                    <li><p>Include a <code>button</code> that will call a function when clicked</p></li>
+                    <li><p>Include a <code>div</code> with an id of "output" for the circumference to be displayed from the JS function</p></li>
+                </ul>
+            </p></li>
+            <li><p>Create a js file named <code>app.js</code>
+                <ul>
+                    <li><p>Create a function called <code>submitFunction()</code></p></li>
+                    <li><p>Use <code>document.getElementByID</code> to retrieve the value from the html <code>input</code></p></li>
+                    <li><p>Use <code>parseFloat()</code> to convert the input string to a number</p></li>
+                    <li><p>Use the formula <code>π r^2</code> to compute the circumference of a circle</p></li>
+                    <li><p>Use <code>document.getElementByID</code> to display that circumference in the <code>output</code> div.</p></li>
+                </ul>
+            </p></li>
+            <li><p>Add a <code>script</code> tag to the html file that references <code>app.js</code></p></li>
+            <li><p>Write the code or use <code>onclick</code> in the button to call <code>submitFunction()</code> when the button is clicked.</p></li>
+            <li><p>Run the code and ensure that everthing works as intended.</p></li>
         </ol>
-        <p>Nice work writing your first program! Now, let's try something similar in the browser. Remember in the <a href="reading.html#exampleSection" target="_blank">Lesson 1 Reading</a> that JavaScript from html? We will do the same thing. </p>
-        <p>The following video demonstrates the steps in this next section:</p>
-        <iframe width="560" height="315" class="img-tutorial" src="https://www.youtube.com/embed/wCpAYOWhvaw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h3>Code With Modules</h3>
+        <p>Now that you have the code working the way that we're used to, let's split up our logic into modules.</p>
         <ol>
-            <li><p>Create a- file the same way you did before called <code>hello.html</code></p></li>
-            <li>
-                <p>In the new file, type <code>!</code> and then press <code>tab</code> on your keyboard. This will complete the Emmet Abbreviation suggestion that shows up after you type <code>!</code>. Alternatively, <code>enter</code> will autocomplete it as well.</p>
-                <br>
-                <img src="images/class1_8.png" class="img-tutorial" alt="">
-                <br>
-                <p>hello.html should now look like this: </p>
-                <br>
-                <img src="images/class1_9.png" class="img-tutorial" alt="">
-            </li>
+            <li><p>Create a file called <code>circleCalculator.js</code>. In it: 
+                <ul>
+                    <li><p>Create a function called <code>calculateCircumference(r)</code></p></li>
+                    <li><p>Export this function by inserting the text <code>export</code> before <code>function</code> where it is declared.</p></li>
+                </ul>
+            </p></li>
+            <li><p>In <code>app.js</code> import the calculateCircumference function at the top of the file in this manner: 
+                <pre><code class="js">
+    import {calculateCircumference} from './circleCalculator.js';                
+                </code></pre>
+            </p></li>
+            <li><p>In <code>submitFunction()</code> call the <code>calculateCircumference</code> function using the value from the user input as the argument to be passed into the function.</p></li>
+            <li><p>Lastly, because of scope being different with modules, add code to trigger the onclick function call from JavaScript instead of from the HTML:
+                <ul>
+                    <li><p>In the html, add an id attribute to the button with a value of "submitButton"</p></li>
+                    <li><p>In app.js, add the following code to trigger the function when a click is detected: 
+                        <pre><code class="js">
+    document.querySelector('#submitButton').onclick = submitFunction;
+                        </code></pre>
+                    
+                </ul>
+            </p></li>
             
-            <li>
-                <p>Having installed Live Server during <a href="setup.html">SETUP</a>, save the hello.html file. Right click in the editor while the file is open and click <code>Open with Live Server</code>.</p>
-                <br>
-                <img src="images/class1_12.png" class="img-tutorial" alt="">
-                <p>You should see your browser open with your empty html file loaded. I can see the file name in the url bar. And I can see the text "Document" in the tab at the top that matches the <code>title</code> html tag currently on line 7 in hello.html.</p>
-                <br>
-                <img src="images/class1_13.png" class="img-tutorial" alt="">
-                <p>If a different browser opened, we want to change your VS Code settings to open these files in Google Chrome. Please view <a href="https://stackoverflow.com/questions/49289233/how-to-change-default-browser-with-vs-codes-open-with-live-server/51580183" target="_blank">How to change default browser with VS Code's “open with live server”?</a>. The following screenshot was taken from there.</p>
-                <img src="images/class1_14.png" class="img-tutorial" alt="">
-            </li>
-            <li><p>If you'd like, you may take a moment to experiment with this html. Add the following code to line 10: <img src="images/class1_15.png"> and save the file. Live Server will detect this change, and update your code in the browser, rendering your new code. If it does not reload the file, refresh the page in the browser.</p></li>
-            <li>
-                <p>The last thing we have to do, is get JavaScript to run in here. We already have a JavaScript file. Let's add it to our html file. </p>
-                <br>
-                <img src="images/class1_16.png" class="img-tutorial" alt="">
-            </li>
-            <li>
-                <p>If we look at hello.js, we are currently outputting to the console. This is not what we want to do in the browser. Instead, let's put <code>alert</code> in. This will not be able to run in the console anymore, but it will run beautifully in the browser. Make the change, save the file, and refresh the page in the browser.</p>
-                <br>
-                <img src="images/class1_17.png" class="img-tutorial" alt="">
-                <br>
-                <img src="images/class1_18.png" class="img-tutorial" alt="">
-            </li>
         </ol>
         <h2>Conclusion</h2>
-        <p>In this exercise, you set up all of the software you will need for web development in general. You have written a JavaScript program. You have executed it both in a console and in the browser through an html file. It is common practice to use html and JavaScript together the way that we did today. Congratulations!!</p>
-        <h4><a href="class1_1.zip" target="_blank">Completed Code Zip File</a></h4>
+        <p>Congratulations! You have just done everything that you need to do in order to incorporate modules into your applications. The following video goes through the entire class activity.</p>
+        <iframe width="560" height="315" class="img-tutorial" src="https://www.youtube.com/embed/MpLrzTQI9Qo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h4><a href="class1.zip">Completed Code Zip File</a></h4>
     </article>
 </body>
 
-</html>
+</html> 
