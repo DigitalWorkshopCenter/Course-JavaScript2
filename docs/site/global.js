@@ -3,7 +3,7 @@ var g = {};
 
 // course info
 g.courseCode = '';
-g.courseName = 'JavaScript Course | Level II';
+g.courseName = '   Level II';
 g.courseCodeName = g.courseCode + ' | ' + g.courseName;
 
 // lessons
