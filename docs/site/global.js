@@ -42,12 +42,13 @@ g.t2_5 = 'Ember';
 g.t2_6 = 'Meteor';
 g.t2_7 = 'Node';
 g.t2_8 = 'Comparing and Deciding';
+g.t2_9 = 'Getting Started with our Framework of Choice';
 
-g.t3_1 = 'Dependencies in JavaScript';
-g.t3_2 = 'Builds';
-g.t3_3 = 'Variable Types';
-g.t3_4 = 'Looping/Repetition';
-g.t3_5 = 'Functions';
+g.t3_1 = 'Single Page Applications';
+g.t3_2 = 'npm and npx';
+g.t3_3 = 'Dependencies in JavaScript';
+g.t3_4 = 'Builds';
+g.t3_5 = 'Variable Types, Repetition, Functions';
 
 g.t4_1 = 'JavaScript Testing';
 g.t4_2 = 'Offline Storage';
