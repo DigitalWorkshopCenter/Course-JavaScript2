@@ -12,7 +12,9 @@
   font-weight: normal;
   font-style: normal;
 }
-
+.accordion {
+  margin-bottom: 100px;
+}
 :root {
   /*  DWC Color scheme*/
   --color1: #ffffff;

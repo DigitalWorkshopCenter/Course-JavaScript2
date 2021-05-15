@@ -49,8 +49,12 @@ g.t3_2 = 'npm and npx';
 g.t3_3 = 'Dependencies in JavaScript';
 g.t3_4 = 'Builds';
 g.t3_5 = 'Variable Types, Repetition, Functions';
+g.t3_6 = 'ES6 Concepts';
 
 g.t4_1 = 'JavaScript Testing';
 g.t4_2 = 'Offline Storage';
 
 g.t5_1 = 'Asynchronous JavaScript';
+g.t5_2 = 'Recap on Starting a New Web App';
+g.t5_3 = 'Deploy App with Github Pages';
+g.t5_4 = 'Professional Portfolios';
