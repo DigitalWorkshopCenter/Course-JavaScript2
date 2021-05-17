@@ -321,7 +321,43 @@
             aria-labelledby="headingTwo"
             data-bs-parent="#accordionExample"
           >
-            <div class="accordion-body"></div>
+            <div class="accordion-body">
+              <h6>Much of this section comes straight from the <a href="https://nodejs.org/en/knowledge/getting-started/npm/what-is-the-file-package-json/" target="_blank">node.js website</a></h6>
+              <h4>What is a dependency?</h4>
+              <p>A dependency is some third-party code that your application depends on. Just like a child depends on its parent, your application depends on other people's code. A piece of code becomes a true dependency when your own application cannot function without it.</p>
+              <h4>What are packages?</h4>
+              <p>The term "package" is used to describe code that's been made publicly available. A package can contain a single file or many files of code. Generally speaking, a package helps you to add some functionality to your application.</p>
+              <h4>What is the file "package.json"</h4>
+              <p>All npm packages contain a file, usually in the project root, called <code>package.json</code> - this file holds various metadata relevant to the project. This file is used to give information to <code>npm</code> that allows it to identify the project as well as handle the project&apos;s dependencies. It can also contain other metadata such as a project description, the version of the project in a particular distribution, license information, even configuration data - all of which can be vital to both <code>npm</code> and to the end users of the package. The <code>package.json</code> file is normally located at the root directory of a Node.js project.</p>
+<p>Here is a minimal <code>package.json</code>:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;barebones&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;version&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;0.0.0&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The <code>name</code> field should explain itself: this is the name of your project. The <code>version</code> field is used by npm to make sure the right version of the package is being installed. Generally, it takes the form of <code>major.minor.patch</code> where <code>major</code>, <code>minor</code>, and <code>patch</code> are integers which increase after each new release. For more details, look at this spec: <a href="http://semver.org">http://semver.org</a> .</p>
+<p>For a more complete package.json, we can check out <code>underscore</code>:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;underscore&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;description&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;JavaScript&apos;s functional programming helper library.&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;homepage&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;http://documentcloud.github.com/underscore/&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;keywords&quot;</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;util&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;functional&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;server&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;client&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;browser&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;author&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;Jeremy Ashkenas &lt;<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="640e011601091d24000b071109010a1007080b11004a0b1603">[email&#160;protected]</a>&gt;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;contributors&quot;</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;dependencies&quot;</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;repository&quot;</span> <span class="token operator">:</span> <span class="token punctuation">{</span><span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;git&quot;</span><span class="token punctuation">,</span> <span class="token property">&quot;url&quot;</span><span class="token operator">:</span> <span class="token string">&quot;git://github.com/documentcloud/underscore.git&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;main&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;underscore.js&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;version&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;1.1.6&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>As you can see, there are fields for the <code>description</code> and <code>keywords</code> of your projects. This allows people who find your project understand what it is in just a few words. The <code>author</code>, <code>contributors</code>, <code>homepage</code> and <code>repository</code> fields can all be used to credit the people who contributed to the project, show how to contact the author/maintainer, and give links for additional references.</p>
+<p>The file listed in the <code>main</code> field is the main entry point for the library; when someone runs <code>require(&lt;library name&gt;)</code>, require resolves this call to <code>require(&lt;package.json:main&gt;)</code>.</p>
+<p>Finally, the <code>dependencies</code> field is used to list all the dependencies of your project that are available on <code>npm</code>. When someone installs your project through <code>npm</code>, all the dependencies listed will be installed as well. Additionally, if someone runs <code>npm install</code> in the root directory of your project, it will install all the dependencies to <code>./node_modules</code>.</p>
+<p>It is also possible to add a <code>devDependencies</code> field to your <code>package.json</code> - these are dependencies not required for normal operation, but required/recommended if you want to patch or modify the project. If you built your unit tests using a testing framework, for example, it would be appropriate to put the testing framework you used in your <code>devDependencies</code> field. To install a project&apos;s <code>devDependencies</code>, simply pass the <code>--dev</code> option when you use <code>npm install</code>.</p>
+<p>For even more options, you can look through the <a href="https://docs.npmjs.com/files/package.json">online docs</a> or run <code>npm help json</code>.</p>
+
+ 
+            </div>
           </div>
         </div>
         <div class="accordion-item">
@@ -343,7 +379,56 @@
             aria-labelledby="headingThree"
             data-bs-parent="#accordionExample"
           >
-            <div class="accordion-body"></div>
+            <div class="accordion-body">
+              <h4>NPM</h4>
+              <h5>What is NPM?</h5>
+              <p>From <a href="https://www.w3schools.com/whatis/whatis_npm.asp" target="_blank">w3schools</a> we learn:</p>
+              <ul>
+                <li><p>npm is the world's largest Software Registry.</p></li>
+                <li><p>The registry contains over 800,000 code packages.</p></li>
+                <li><p>Open-source developers use npm to share software.</p></li>
+                <li><p>Many organizations also use npm to manage private development.</p></li>
+              </ul>
+              <p>Having learned about JavaScript Dependencies in the previous section, you can see how npm could play a large role in our web applications. With almost 1,000,000 packages of code available, there are many things that can be done very quickly and very efficiently by making use of these packages. To give you an idea <a href="https://nathanbirch.netlify.app/" target="_blank">this website</a> was made in just a couple of days. It uses many packages which is one of the reasons why it could be created so quickly. A few of the more noticeable packages to note are: </p>
+              <ul>
+                <li><p>The particles as the background across all of the pages</p></li>
+                <li><p>The typewriter typing effect</p></li>
+                <li><p>The photo gallery on the personal page</p></li>
+                <li><p>The image viewer on the personal page</p></li>
+                <li><p>The email form functionality on the contact page</p></li>
+                <li><p>The animations on the about page</p></li>
+                <li><p>The print functionality on the about page</p></li>
+                <li><p>Much of the styles throughout the whole site</p></li>
+                <li><p>All of the icons throughout the whole site</p></li>
+                <li><p>And many more...take a look at the list of dependencies in the package.json file from this site:
+                  <img src="images/package1example.png" alt="" class="img-tutorial">
+                </p></li>
+              </ul>
+              <h5>So, how do we use npm?</h5>
+              <p>Well first, we need to download and install <a href="https://nodejs.org/en/download/" target="_blank">Node.js</a>. After that, you'll be able to run npm commands in your terminal when working on projects. This allows you to very easily download, update, remove or utilize packages in your applications. <a href="https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/" target="_blank">This article</a> has a lot of great information on getting started with npm. The following video may also be very helpful: </p>
+              <iframe width="560" height="315" class="img-tutorial" src="https://www.youtube.com/embed/pU9Q6oiQNd0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <h4>NPX</h4>
+              <p>With a decent understanding of what NodeJS is and what we can do with npm, and JavaScript packages and dependencies, let's learn a little bit about npx.</p>
+              <h6>The following is from <a href="https://www.educative.io/edpresso/what-is-npx" target="_blank">educative.io</a></h6>
+              <p>JavaScript is definitely one of the most interesting, popular, and busiest languages out there. So, whenever there’s a new buzzword flying around in programming, chances are it is JavaScript related. One such buzzword is NPX. At this point, I’d love to briefly explain what Node and NPM are so as not to get confused.</p>
+              <p>NPX is an NPM package runner that makes it really easy to install any sort of node executable that would have normally been installed using NPM.</p>
+              <h4>Why use NPX?</h4>
+              <p>There are a number of ways to install node packages, you can have them sitting locally (local to the project) or install globally (in the user environment).</p>
+              <p>Sometimes, instead of using either of the two install methods above, you may just want to use the package and go.</p>
+              <p>Sometimes, you might just want to experiment with a list of packages as you may not know exactly what you need.</p>
+              <p>In these cases, ​instead of installing locally or globally, you can go straight to running those packages with NPX.</p>
+              <h4>How does it work?</h4>
+              <p>NPX comes bundled with NPM starting with version 5.2+. So, if your version of NPM is 5.2 or higher, then you have NPX installed.</p>
+              <p>When you run a package using NPX, it searches for the package in the local and global registry, and then it runs the package.</p>
+              <p>If the package is not already installed, NPX downloads the package files and installs the package, but it will only cache the files instead of saving it.</p>
+              <p>To use NPX, you would run a command like this:              </p>
+              <pre><code class="js">npx some-package</code></pre>
+              <p>One great way for you to see how quickly NPX works is to create a react app using:</p>
+              <pre><code class="js">$ npx create-react-app my-app</code></pre>
+              <p>The above command will generate a react app, named my-app, in the path that the command was run in using the create-react-app package. NPX then searches for the package in your environment. If it is not found, NPX downloads the files and runs the command to create a new react app, using just that one line of command.</p>
+              <p>One disadvantage of NPX is that it needs to search for packages, whether or not they are installed, before it actually runs them. This, to me, can sometimes be an overhead when you need to get things done very quickly.</p>
+              <p>To explore further you can read <a href="https://www.npmjs.com/package/npx" target="_blank">here</a> .</p>
+            </div>
           </div>
         </div>
         <div class="accordion-item">
@@ -365,7 +450,43 @@
             aria-labelledby="headingFour"
             data-bs-parent="#accordionExample"
           >
-            <div class="accordion-body"></div>
+            <div class="accordion-body">
+              <h4>What does "Build" mean?</h4>
+              <p>The word “build” can be used to describe what it does, which is constructing, or “building”, a project and preparing any tasks, such as updating or installing packages.</p>
+
+              <p>Running the command will run whatever value is assigned to the key "build" in the package.json file. So, if it was set to</>
+              <pre><code>"build": "babel src -d lib"</code></pre>
+              <p>then running</p>
+              <pre><code>npm run build</code></pre>
+              
+              <p>will run the command</p>
+              <pre><code>"babel src -d lib".</code></pre>
+              <h4>Why does it matter?</h4>
+              <h6>Much of this section comes from <a href="https://stackoverflow.com/questions/28684041/what-is-the-purposes-of-javascript-build-tools" target="_blank">stackoverflow</a>.</h6>
+              <p>Gulp and Grunt (JavaScript build tools) allow for task automation.</p>
+              <p>Pretty much anything you find yourself doing repeatedly in a project, can be automated with gulp and it's plugins. and if you can't find a plugin to do the job for you, gulp is just a nodejs app, so you can quickly write your own code to do the job.</p>
+              <p>As far as examples, since I myself am an angular web developer, I will give you examples from the Front End Development land, but don't think gulp is only limited to this area. So here are some examples :</p>
+              <ul>
+                <li><p>automate your build process ( some subtask examples here )</p></li>
+                <li><p>take all your projects html,js,css, concatenate them and minify them</p></li>
+                <li><p>automatically inject dependencies into your html files</p></li>
+                <li><p>listen to file changes and run tasks when a file changes</p></li>
+                <li><p>everytime you add a js file, you need to add include it to your html files. this can be automated</p></li>
+                <li><p>everytime you save a JavaScript file you want to run jshint on it, to warn for errors</p></li>
+                <li><p>everytime you save a CoffeeScript file, you want it to be automatically converted into a javascript file, and have that javascript file included to your html files</p></li>
+                <li><p>deleting files automatically</p></li>
+                <li><p>thousands of other things</p></li>
+              </ul>
+              <p>Another interesting benefit you get with JavaScript build tools specifically ( as opposed to Java's Ant or Rails's Rake ), is that most of all web applications out there use JavaScript. So if your back end is in Java or Rails or C++ ... your front end people always rejoice under JavaScript. Which means that, no matter what language you use, you STILL use JavaScript ... Which makes tools like gulp very interesting, because JavaScript and JavaScript experience is guaranteed to exist in any Web Development team.</p>
+              <p>From another user... </p>
+              <p>Build tools are an asset to application development. Few years back, it was common for project managers to run behind the developers asking them to clean up the code, lint the code, increase the performance of the application etc.</p>
+              <p>The usual modus operandi of developers was to make a copy of the 'Development' environment code for the Production environment and do the required operations. Developers would use third party software or apps that helps in cleaning up the code like removing unnecessary comments, minifying to decrease the overall size of the file and thereby the application, concatenating the files so that you decrease the number of hits to the server, perform unit tests, to name a few.</p>
+              <p>What build systems like Gulp and Grunt have done is that it automates all the above mentioned tasks in a span of few seconds. These build systems have specific plugins that does concatentation, minification, linting, environment specific development etc. All these tasks run in one go performing the required operations, in turn running the application from the newly formed production code.</p>
+              <p>The advantage of using build system is that it accelerates your application's page load time to a greater extent. Your code is cleaner, smaller in size and at the same time adheres to the best coding practices. And in turn , you save a lot of time which was spent doing each of these tasks.</p>
+              <p>They are pretty easy to work with and should be used in application development. :-)</p>
+              <h4>Summary</h4>
+              <p>As you can see, there are a lot of things that can be done with JavaScript builds. Pretty much anytime you work with a frontend framework like React or Vue, there will be builds that will be executed to help you automate your tasks and do things very quickly and efficiently. </p>
+            </div>
           </div>
 
           <div class="accordion-item">
@@ -388,7 +509,7 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                <h2>Variable Types</h2>
+                <h2><a href="https://nathanbirch.github.io/Course-JavaScript2/lesson01/review.html#body1" target="_blank"> Variable Types</a></h2>
                 <h2>Repetition</h2>
                 <h2>Functions</h2>
                 <h2>JavaScript <code>this</code></h2>

@@ -45,8 +45,8 @@ g.t2_8 = 'Comparing and Deciding';
 g.t2_9 = 'Getting Started with our Framework of Choice';
 
 g.t3_1 = 'Single Page Applications';
-g.t3_2 = 'npm and npx';
-g.t3_3 = 'Dependencies in JavaScript';
+g.t3_2 = 'Dependencies in JavaScript';
+g.t3_3 = 'npm and npx';
 g.t3_4 = 'Builds';
 g.t3_5 = 'Variable Types, Repetition, Functions';
 g.t3_6 = 'ES6 Concepts';
