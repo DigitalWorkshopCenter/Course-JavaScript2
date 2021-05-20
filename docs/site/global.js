@@ -56,5 +56,5 @@ g.t4_2 = 'Offline Storage';
 
 g.t5_1 = 'Asynchronous JavaScript';
 g.t5_2 = 'Recap on Starting a New Web App';
-g.t5_3 = 'Deploy App with Github Pages';
+g.t5_3 = 'Deploy App';
 g.t5_4 = 'Professional Portfolios';
